@@ -1,8 +1,8 @@
 <vt_frag
-  vt_imports="['components/vt_nav.html',
-               'components/sections/vt_home.html', 'components/sections/vt_installation.html',
-               'components/sections/vt_usage.html', 'components/sections/vt_imports.html',
-               'components/sections/vt_filling_templates.html']"
+  vt_imports="['components/vt_nav.html', 'components/sections/vt_home.html',
+               'components/sections/vt_installation.html', 'components/sections/vt_usage.html',
+               'components/sections/vt_imports.html', 'components/sections/vt_filling_templates.html',
+               'components/sections/vt_prop_accessor.html', 'components/sections/vt_inplace_components.html']"
   vt:parent="components/Base.html"
   page="Docs"
 >
@@ -10,19 +10,27 @@
     <vt_nav class_="col-lg-4 col-md-4 col-sm-12" version="1.0.0" />
     <main class="col-lg-8 col-md-8 col-sm-12">
       <vt_home />
+
       <hr />
       <vt_installation />
+
+      <hr />
       <vt_usage />
+
       <hr />
       <vt_imports />
+
       <hr />
       <vt_filling_templates />
-      <h2>Property accessor using '::'</h2>
-      <p>
-        You can access data using the property accessor ':' from a or file, api
-        as a key.
-      </p>
-      <p><strong>NOTE</strong>: It only goes to one level</p>
+
+      <hr />
+      <vt_prop_accessor />
+
+      <hr />
+      <h2 class="mt-3" id="other-features">
+        Other cool <code>vt</code> features:
+      </h2>
+      <vt_inplace_components />
     </main>
   </div>
 </vt_frag>

@@ -1,4 +1,4 @@
-<div vt_imports="['components/vt_todos.html']">
+<div vt_imports="['components/vt_posts.html']">
   <h4 id="vt:map-from"><code>vt:map-from</code></h4>
   <p>
     The first attribute in in the special suite of the mapping attributes is
@@ -8,7 +8,7 @@
   <p>For example, consider the component:</p>
   <pre>
         <code>
-            &lt;vt_todos vt:map-from='[{
+            &lt;vt_posts vt:map-from='[{
                 "userId": 1,
                 "id": 1,
                 "title": "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
@@ -47,14 +47,16 @@
   </pre>
   <p class="mt">
     These are rendered cards (<code
-      >find the code to this in the github repo)</code
+      >find the code to this in the
+      <a href="https://github.com/vanilla-templates/vt_docs">github</a>
+      repo)</code
     >:
   </p>
   <div
     style="height: 500px; background-color: #f3f3f3; overflow-y: scroll"
     class="p-2"
   >
-    <vt_todos
+    <vt_posts
       vt:map-from='[{
         "userId": 1,
         "id": 1,

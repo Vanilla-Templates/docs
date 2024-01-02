@@ -1,0 +1,24 @@
+<div id="vt:map-from-api" vt_imports="['components/vt_posts.html']">
+  <h4><code>vt:map-from-api</code>:</h4>
+  <p>
+    The <code>vt:map-from-api</code> makes a request and fills a
+    <code>vt</code> template with the data (<code
+      >data MUST be in list/array formart</code
+    >).
+  </p>
+
+  <pre>
+        <code>
+            &lt;vt_posts <span class="green">vt:map-from-api="https://jsonplaceholder.typicode.com/posts"</span> />
+        </code>
+    </pre>
+  <p>
+    This is the rendered list (represented inside <code>vt</code> templates):
+  </p>
+  <div
+    style="height: 500px; background-color: #f3f3f3; overflow-y: scroll"
+    class="p-2"
+  >
+    <vt_posts vt:map-from-api="https://jsonplaceholder.typicode.com/posts" />
+  </div>
+</div>

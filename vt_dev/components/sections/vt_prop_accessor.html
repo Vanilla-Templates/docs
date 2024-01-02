@@ -1,0 +1,83 @@
+<section id="prop-accessor">
+  <h3>Property accessor using <code>'::'</code></h3>
+  <p>
+    You can access data using the property accessor <code>'::'</code> from a or
+    file, api as into a component.
+  </p>
+  <p>
+    Assume the data in a <code>json</code> file or an api has the following
+    representation:
+  </p>
+  <pre>
+    {"Leanne Graham":{
+    "id": 1,
+    "name": "Leanne Graham",
+    "username": "Bret",
+    "email": "Sincere@april.biz",
+    "address": {
+            ...
+    },
+    "phone": "1-770-736-8031 x56442",
+    "website": "hildegard.org",
+    "company": {
+            ...
+    }
+    }, "Ervin Howell": {
+    "id": 2,
+    "name": "Ervin Howell",
+    "username": "Antonette",
+    "email": "Shanna@melissa.tv",
+    "address": {
+            ...
+        },
+    "phone": "010-692-6593 x09125",
+    "website": "anastasia.net",
+    "company": {
+        ...
+        }
+    }}
+  </pre>
+  <p>You can access a record like this:</p>
+  <pre>
+    <code>
+        &lt;vt_user <span class="green">vt:from-file="file.json::Leanne Graham"</span> />
+    </code>
+  </pre>
+
+  <p>or in the case of api:</p>
+
+  <pre>
+    <code>
+        &lt;vt_user <span class="green">vt:from-api="https://jsonplaceholder.typicode.com/users::Leanne Graham"</span> />
+    </code>
+  </pre>
+  <p>
+    As shown above, the <code>'::'</code> accessor `accesses` a record, kind of
+    how a key is used in a json dictionary/javascript object/hash-map.
+  </p>
+  <p>
+    <code>**NOTE**</code>The value must accessed by the prop accessor
+    <strong>MUST</strong> be a <code>dictionary</code> or a
+    <code>list of dictionaries.</code>
+  </p>
+  <p>
+    If the value of the <code>key</code> is a list, you then must use
+    <code>vt:map-from-[list|api]</code>.
+  </p>
+  <p>e.g</p>
+  <pre>
+    <code>
+        &lt;vt_users <span class="green">vt:map-from-file="file.json::users"</span> />
+    </code>
+  </pre>
+
+  <pre>
+    <code>
+        &lt;vt_users <span class="green">vt:map-from-api="https://myapi.com::users"</span> />
+    </code>
+  </pre>
+  <strong>
+    <code>**NOTE**</code> The prop accessor only goes to one level, so the json
+    structure matters (a multilevel prop accessor is in development).
+  </strong>
+</section>

@@ -1,0 +1,47 @@
+<div id="vt:map-from-file" vt_imports="['components/vt_posts.html']">
+  <h4><code>vt:map-from-file</code></h4>
+  <p>
+    From the name, <code>vt:map-from-file</code> maps list data from a
+    <code>json</code> file into a template.
+  </p>
+  <p>Given that we have a <code>file.json</code> in the root directory:</p>
+  <pre>
+        <code>
+        [
+            {
+                "userId": 1,
+                "id": 1,
+                "title": "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
+                "body": "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
+            },
+            {
+                "userId": 1,
+                "id": 2,
+                "title": "qui est esse",
+                "body": "est rerum tempore vitae\nsequi sint nihil reprehenderit dolor beatae ea dolores neque\nfugiat blanditiis voluptate porro vel nihil molestiae ut reiciendis\nqui aperiam non debitis possimus qui neque nisi nulla"
+            },
+            {
+                "userId": 1,
+                "id": 3,
+                "title": "ea molestias quasi exercitationem repellat qui ipsa sit aut",
+                "body": "et iusto sed quo iure\nvoluptatem occaecati omnis eligendi aut ad\nvoluptatem doloribus vel accusantium quis pariatur\nmolestiae porro eius odio et labore et velit aut"
+            }
+        ]
+        </code>
+    </pre>
+  <p>and a component:</p>
+  <pre>
+        <code>
+            &lt;vt_posts <span class="green">vt:map-from-file="list.json"</span> />
+        </code>
+    </pre>
+  <p>
+    This is the rendered list (represented inside <code>vt</code> templates):
+  </p>
+  <div
+    style="height: 500px; background-color: #f3f3f3; overflow-y: scroll"
+    class="p-2"
+  >
+    <vt_posts vt:map-from-file="list.json" />
+  </div>
+</div>

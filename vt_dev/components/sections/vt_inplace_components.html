@@ -1,0 +1,27 @@
+<section id="in-place-components">
+  <h3>In Place components</h3>
+  <p>
+    Another cool vt feature is in-place components, which are templates which
+    are defined inplace and consumed directly without having to import them.
+  </p>
+  <pre>
+    <code>
+        &lt;div <span class="green">vt:from-api='https://myapi.json::user'</span> class="card m-2">
+            &lt;div class="card-header">
+                &lt;h3>{title}&lt;/h3>
+            &lt;/div>
+            &lt;div class="card-body">
+                &lt;div>UserId: {userid}&lt;/div>
+                &lt;p>{body}&lt;/p>
+            &lt;/div>
+            &lt;div class="card-footer">
+                &lt;small>id: {id}&lt;/small>
+            &lt;/div>
+        &lt;/div>
+    </code>
+  </pre>
+  <p>
+    In this example, the data accessed is a dictionary that will directly be
+    injected into the template.
+  </p>
+</section>

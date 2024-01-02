@@ -1,6 +1,7 @@
 <article
   id="mapping-over-data"
-  vt_imports="['components/divs/vt_map_from.html']"
+  vt_imports="['components/divs/vt_map_from.html', 'components/divs/vt_map_from_file.html',
+               'components/divs/vt_map_from_api.html']"
 >
   <h5>Mapping over data records</h5>
   <p>
@@ -13,9 +14,15 @@
     map over a <code>list of dictionaries</code> (in <code>json format</code>)
     without having to copy and paste the same element over and again.
   </p>
-  <ul>
+  <ul class="d-flex flex-column gap-5">
     <li>
       <vt_map_from />
+    </li>
+    <li>
+      <vt_map_from_file />
+    </li>
+    <li>
+      <vt_map_from_api />
     </li>
   </ul>
 </article>
