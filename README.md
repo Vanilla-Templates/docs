@@ -1,0 +1,1 @@
+# Vanilla Templates Docs
