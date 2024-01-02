@@ -1,0 +1,28 @@
+<article id="vt:from-md">
+  <h4><code>vt:from-md</code>:</h4>
+  <p>
+    The <code>vt:from-md</code> allows the <code>vt</code> compiler to read a
+    markdown file into a tag.
+  </p>
+  <pre>
+    <code>
+        &lt;vt_frag <span class="green">vt:from-md="sample.md"</span> />
+    </code>
+  </pre>
+  <p>This is the rendered markdown text:</p>
+  <div vt:from-md="sample.md" class="markdown m-3"></div>
+
+  <p>
+    The <code>vt_frag</code> tag is a special <code>vt</code> tag used when you
+    don't want to render a certain tag on the final html (more on this later).
+  </p>
+  <p>
+    If you want the tag to remain after you inject the markdown text, you can
+    use a native html tag, as shown below.
+  </p>
+  <pre>
+    <code>
+        &lt;div <span class="green">vt:from-md="sample.md"</span>&gt; &lt;/div&gt;
+    </code>
+  </pre>
+</article>

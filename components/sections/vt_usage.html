@@ -1,0 +1,42 @@
+<section>
+  <h3 id="usage">How <code>vt</code> works:</h3>
+  <p>
+    The first step to using <code>vt</code> is to first create the components
+    you will use to fill with data:
+  </p>
+  <p>For example:</p>
+  <pre id="vt_template">
+        <code>
+          &lt;div class="blog__card" &gt;
+            &lt;div class="card__header"&gt;
+              &lt;h3&gt;<span class="green">{title}</span>&lt;/h3&gt;
+            &lt;/div&gt;
+            &lt;div class="card__desc"&gt;
+              &lt;p&gt;<span class="green">{description}</span>&lt;/p&gt;
+            &lt;div/&gt;
+            &lt;span class="card__footer" &gt;
+              &lt;small&gt;<span class="green">{date}</span>&lt;/small&gt; | &lt;small&gt;<span class="green">{about}</span>&lt;/small&gt; |
+              &lt;small&gt; &lt;i class="icon-bubble3"&gt;&lt;/i&gt;<span class="green">{readers}</span>&lt;/small&gt;
+            &lt;/span&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        </code>
+</pre>
+  <p>
+    Notice the placeholders wrapped in <code>`{*}`</code>. As the template above
+    suggests, it requires 5 data points, namely:
+  </p>
+
+  <ul>
+    <li>title</li>
+    <li>description</li>
+    <li>about</li>
+    <li>date</li>
+    <li>readers</li>
+  </ul>
+  <p>
+    Let's look at some ways we can populate the data into the template and into
+    the final html file. For this, let's assume our
+    <code>index.html</code> looks like this:
+  </p>
+</section>

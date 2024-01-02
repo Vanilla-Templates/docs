@@ -1,0 +1,30 @@
+<section>
+  <h2 id="installation">Installation</h2>
+  <ol>
+    <li>create a working directory and <code>cd</code> into it</li>
+    <p><code>mkdir vanilla cd vanilla</code></p>
+    <li>degit from gh in dir</li>
+    <code
+      >pip install
+      git+https://github.com/FREDRICKKYEKI/vanilla-templates.git</code
+    >
+    <li>create .gitignore in working directory and add into it.</li>
+    <li>
+      create public directory (<code>NOTE:</code>
+      <strong>We insist you call it public</strong>) for static files.
+    </li>
+    <p><code>mkdir public</code></p>
+    <li>
+      create an <code>index.html</code> and start creating
+      <code>vanilla templates</code>
+    </li>
+    <li>
+      Build or serve your work on a configured port.<br />
+      <code>python -m vt.serve -- for serving</code><br />
+      <code
+        >python -m vt.building -- for generating static site in the build
+        directory</code
+      >
+    </li>
+  </ol>
+</section>

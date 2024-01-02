@@ -1,0 +1,49 @@
+<article vt_imports="['components/vt_test_card.html']" id="vt:from">
+  <h4>Using <code>vt:from</code> special attribute:</h4>
+  <p>
+    The <code>vt:from</code> prop accepts a <code>key-value like</code> json
+    text, which is parsed into a <code>python dictionary</code>.
+  </p>
+  <pre>
+      <code>
+            &lt;vt_blog <span class="green"> vt:from='{"title":"Vanilla rocks!!!",</span>
+                        <span class="green">           "about":"vanilla templates,</span>
+                        <span class="green">           "date":"1/1/24,</span>
+                        <span class="green">           "readers":"1000,</span>
+                        <span class="green">           "description":"This is a blog about Vanilla Templates"</span>
+                        <span class="green">         }'</span>
+            /&gt;
+      </code>
+  </pre>
+  <p>Pointers to this method:</p>
+  <ol>
+    <li>
+      The inner quotes <code>MUST </code> be <code>double quotes.</code> Failure
+      to this will result in the engine
+    </li>
+    <ul>
+      i.e,
+      <li><code>vt:from='{"key":"value"}'</code>✅</li>
+      These are wrong:
+      <li><code>vt:from="{'key':'value'}"</code>❌</li>
+      <li><code>vt:from="{"key":"value"}"</code>❌</li>
+      <li><code>vt:from="{'key':"value"}"</code>❌</li>
+      <li><code>vt:from="{"key":'value'}"</code>❌</li>
+      <code>throwing an exception</code
+      >.
+    </ul>
+    <li>
+      Just with regular props, the keys <code>MUST</code> match with the
+      placeholders in the <a href="#vt_template">template.</a>
+    </li>
+  </ol>
+  <vt_test_card
+    vt:from='{
+    "title":"Vanilla rocks!!!",
+    "about":"vanilla templates",
+    "date":"1/1/24",
+    "readers":"1000",
+    "description":"This is a blog about Vanilla Templates"
+}'
+  />
+</article>

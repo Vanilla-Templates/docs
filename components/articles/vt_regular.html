@@ -1,0 +1,66 @@
+<article id="regular-vt-props" vt_imports="['components/vt_test_card.html']">
+  <h4>Regular html attributes (or props in this <code>vt</code> terms)</h4>
+  <p>
+    Data can be passed to the template through regular html attributes, also
+    called <code>vt props</code> (properties in full).
+  </p>
+  <pre>
+      <code>
+            &lt;vt_blog
+              title="Vanilla rocks!!!"
+              about="vanilla templates"
+              date="'1/1/24'"
+              readers="1000"
+              description="This is a blog about Vanilla Templates"
+            /&gt;
+      </code>
+  </pre>
+  <p>A few pointers when using this method of passing data:</p>
+  <ul>
+    <li>
+      Each attribute <code>MUST MATCH</code> the template place holder. Notice
+      the placeholders in <a href="#vt_template">this</a> template match with
+      the props in the component above.
+    </li>
+    <li>
+      For native html attributes, we suggest that you add a unique prefix/suffix
+      for the engine to parse it correctly:
+      <ul>
+        <li>
+          e.g instad of
+          <code> &lt;vt_blog class="card"/&gt; </code>, <br />
+          we suggest
+          <code>
+            &lt;vt_blog <span class="green">class_</span>="card"/&gt;
+          </code>
+          <br />
+          or
+          <code>
+            &lt;vt_blog <span class="green">_class</span>="card"/&gt;
+          </code>
+        </li>
+      </ul>
+    </li>
+    <li>
+      Notice the <code>date="'1/1/24'"</code>:
+      <ul>
+        <li>
+          Since the the value is directly evaluated into python, the extra
+          <code>''</code> aid the compiler to know that its a string and not an
+          int (expression).
+        </li>
+      </ul>
+    </li>
+    <li>
+      Lastly, the data passed this way is not processed in any way and is
+      injected as is.
+    </li>
+  </ul>
+  <vt_test_card
+    title="Vanilla rocks!!!"
+    about="vanilla templates"
+    date="'1/1/24'"
+    readers="1000"
+    description="This is a blog about Vanilla Templates"
+  />
+</article>

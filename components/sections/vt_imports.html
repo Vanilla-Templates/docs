@@ -1,0 +1,71 @@
+<section>
+  <h3 id="vt_imports">
+    <u><code>vt_imports</code></u>
+  </h3>
+  <p>
+    The first special attribute we'll look into is the
+    <code>vt_imports="[*]"</code> attribute.
+  </p>
+  <pre>
+        <code>
+          &lt;!DOCTYPE html&gt;
+          &lt;html lang="en" <span class="green">vt_imports="['components/vt_blog.html']"</span>&gt;
+            &lt;head&gt;
+              &lt;meta charset="UTF-8" /&gt;
+              &lt;meta name="viewport" content="width=device-width, initial-scale=1.0" /&gt;
+              &lt;title&gt;Vanilla&lt;/title&gt;
+            &lt;/head&gt;
+            &lt;body&gt;
+                  <span class="green">&lt;vt_blog</span>
+                    <span class="green">title="Vanilla rocks!!!"</span>
+                    <span class="green">about="vanilla templates"</span>
+                    <span class="green">date="1/1/24"</span>
+                    <span class="green">readers="1000"</span>
+                    <span class="green">description="This is a blog about Vanilla Templates"</span>
+                  <span class="green">/&gt;</span>
+            &lt;/body&gt;
+          &lt;/html&gt;
+        </code>
+      </pre>
+
+  <p>
+    This is a special <code>vt</code> attribute which informs the engine of an
+    existence of a <code>vt</code> component.
+  </p>
+  A few things to note here:
+  <ul>
+    <li>
+      The naming convention (prefix <code>'vt_'</code> in the component name).
+    </li>
+    <ul>
+      <li>
+        The engine will still parse the vt components with the prefix, but it is
+        <code>highly recommended</code> that you add the prefix so that the the
+        templating engine picks it up while cleaning up and subsequently alert
+        you incase you forgot to import it (more on this later).
+      </li>
+      <li>
+        Every imported component <code>MUST</code> be used in the parent
+        component otherwise the engine<code> throws an Exception.</code>
+      </li>
+    </ul>
+    <li>
+      Since it's the first time to come across this attribute, the following is
+      to be said about it:
+    </li>
+    <ul>
+      <li>
+        Any component to be used on any template <code>MUST</code> be imported
+        using the <code>vt_imports</code> attribute
+      </li>
+      <li>The attributes takes in a list of paths.</li>
+      <code
+        >**IMPORTANT** The paths in the list are not relative to the template,
+        they are relative to the root directory: i.e, if your template is in
+        'components/vt_header.html' and is importing another template in
+        'components/logo.html', the vt_imports of the 'vt_header' component
+        should be 'vt_imports=["components/vt_logo.html"]'
+      </code>
+    </ul>
+  </ul>
+</section>

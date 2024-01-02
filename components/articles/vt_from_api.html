@@ -1,0 +1,31 @@
+<article id="vt:from-api" vt_imports="['components/vt_cat_card.html']">
+  <h4><code>vt:from-api</code>:</h4>
+  <p>
+    The <code>vt:from-api</code> from the name, makes a request and fills a
+    <code>vt</code> template with the data.
+  </p>
+  <p>For example:</p>
+  <pre>
+    <code>
+        &lt;vt_cat_card <span class="green">vt:from-api="https://catfact.ninja/fact"</span> /&gt;
+    </code>
+  </pre>
+  The actual template looks like this:
+  <pre>
+    <code>
+      &lt;div class="card">
+        &lt;div class="card-header">
+          &lt;strong>Cat fax ! &lt;/strong>
+        &lt;/div>
+        &lt;div class="card-body">
+          &lt;strong>Fact: &lt;/strong><span class="green">{fact}</span>
+        &lt;/div>
+        &lt;div class="card-footer">
+          &lt;strong>Length: &lt;/strong><span class="green">{length}</span>
+        &lt;/div>
+      &lt;/div>
+    </code>
+  </pre>
+
+  <vt_cat_card vt:from-api="https://catfact.ninja/fact" />
+</article>

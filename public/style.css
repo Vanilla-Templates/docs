@@ -1,0 +1,73 @@
+/* @import url('https://fonts.cdnfonts.com/css/helvetica-neue-55'); */
+@import url('https://fonts.cdnfonts.com/css/lato');
+
+* {
+    box-sizing: border-box;
+    font-family: 'Lato', sans-serif;
+    /* font-family: 'Helvetica Neue', sans-serif; */
+}
+
+body {
+    /* background: #f3f3f3; */
+    min-height: 100vh;
+}
+
+header .logo {
+    background-color: #fed74f;
+    width: 70px;
+}
+
+a {
+    text-decoration: none !important;
+    font-weight: bold;
+}
+
+aside {
+    height:100%;
+    position: sticky;
+    top: .9rem;
+}
+
+main code,
+main pre  {
+    border-radius: 5px;
+    background-color: #f5f5f5;
+}
+
+
+.red {
+    color: rgb(214, 14, 14);
+    background-color: rgb(255, 225, 225);
+
+}
+
+.green {
+    color: rgb(4, 97, 4);
+    background-color:rgb(217, 250, 217);
+
+}
+
+
+section {
+    padding-top: 1rem;
+}
+
+.github-corner {
+    position: fixed;
+    top: 0;
+    border: 0;
+    right: 0;
+}
+
+.blog__card,
+.markdown,
+.cat__card,
+.blog__card {
+    margin-top: 1rem;
+    width: max-content;
+    display: flex;
+    flex-direction: column;
+    padding: .9rem;
+    border: 1px solid #ccc;
+    background-color: #f5f5f5;
+}

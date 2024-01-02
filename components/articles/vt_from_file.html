@@ -1,0 +1,30 @@
+<article id="vt:from-file" vt_imports="['components/vt_test_card.html']">
+  <h4><code>vt:from-file</code></h4>
+  <p>Here is where <code>vt</code> starts to become interesting:</p>
+  <p>
+    The <code>vt:from-file</code> prop accepts a <code>file path</code> which
+    contains a <code>json file</code>, which, just like above, is parsed into a
+    <code>python dictionary</code>.
+  </p>
+  <p>
+    Say we have a <code>file.json</code> in our root directory, which contains:
+  </p>
+  <pre>
+    <code>
+       {
+            "title":"Vanilla rocks!!!",
+            "about":"vanilla templates",
+            "date":"1/1/24",
+            "readers":"1000",
+            "description":"This is a blog about Vanilla Templates"
+        }
+    </code>
+  </pre>
+  This is how you would render the template:
+  <pre>
+    <code>
+        &lt;vt_test_card <span class="green">vt:from-file="file.json"</span> />
+    </code>
+  </pre>
+  <vt_test_card vt:from-file="file.json" />
+</article>
