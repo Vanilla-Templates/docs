@@ -1,11 +1,23 @@
 <section>
   <h2 id="installation">Installation</h2>
   <ol>
-    <li>create a working directory and <code>cd</code> into it</li>
-    <p><code>mkdir vanilla cd vanilla</code></p>
-    <li>degit from gh in dir</li>
-    <code>pip install git+https://github.com/vanilla-templates/vt.git</code>
-    <li>create .gitignore in working directory and add into it.</li>
+    <li>
+      <p>Create a working directory and <code>cd</code> into it.</p>
+      <p>
+        <code
+          >mkdir vanilla-test <br />
+          cd vanilla-test</code
+        >
+      </p>
+    </li>
+    <li>
+      <p>pip install the package from github into the working directory:</p>
+      <code>pip install git+https://github.com/vanilla-templates/vt.git</code>
+    </li>
+    <li>
+      Create <code>.gitignore</code> in working directory and add the
+      <code>vt</code> folder into it.
+    </li>
     <li>
       create public directory (<code>NOTE:</code>
       <strong>We insist you call it public</strong>) for static files.
@@ -16,12 +28,10 @@
       <code>vanilla templates</code>
     </li>
     <li>
-      Build or serve your work on a configured port.<br />
-      <code>python -m vt.serve -- for serving</code><br />
-      <code
-        >python -m vt.building -- for generating static site in the build
-        directory</code
-      >
+      Build or serve your work on a pre-configured port (<b>2220</b>).<br />
+      <code>python -m vt.serve</code> - for serving<br />
+      <code>python -m vt.building</code> - for generating static site in the
+      build directory
     </li>
   </ol>
 </section>

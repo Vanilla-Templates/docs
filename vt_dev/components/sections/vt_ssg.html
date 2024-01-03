@@ -1,0 +1,20 @@
+<section id="SSG">
+  <h3>Static Site Generation</h3>
+  <p>
+    <code>Vanilla Templates</code> has a build command:
+    <code>python3 -m vt.build</code> which compiles all the different components
+    and after filling them the appropriate data.
+  </p>
+  <p>
+    The final html file and the contents in the <code>public</code> folder are
+    dumped in the <code>__vt_build__</code> in the root of your project.
+  </p>
+  <p>From here you can deploy it as is, as it is a basic html file.</p>
+  <p>
+    It is worth noting that with <code>Vanilla Templates</code>, you can build a
+    significantly bigger website with multiple pages re-using the same
+    templates, and use your favourite library to add some interactivity, a.k.a
+    make it <code>reactive</code> (a good recommendation would be
+    <a href="https://htmx.org/docs/">htmx</a>).
+  </p>
+</section>

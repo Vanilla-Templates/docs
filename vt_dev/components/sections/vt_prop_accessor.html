@@ -80,4 +80,32 @@
     <code>**NOTE**</code> The prop accessor only goes to one level, so the json
     structure matters (a multilevel prop accessor is in development).
   </strong>
+  <p>i.e</p>
+  <p>If you have json data in the following format:</p>
+  <pre>
+    <code>
+    {
+      "Ervin Howell":
+        {
+          "id": 2,
+          "name": "Ervin Howell",
+          "username": "Antonette",
+          "email": "Shanna@melissa.tv",
+          "address": {
+                  ...
+              },
+          "phone": "010-692-6593 x09125",
+          "website": "anastasia.net",
+          "company": {
+              ...
+              }
+        }
+    }
+    </code>
+  </pre>
+  <p>
+    If you access the record (whether from an api or file), the data is injected
+    as is, meaning, the accessor isnt able to reach the values for
+    <code>"address"</code> and <code>"company"</code>.
+  </p>
 </section>

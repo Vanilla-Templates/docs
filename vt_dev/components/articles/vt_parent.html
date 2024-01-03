@@ -1,0 +1,91 @@
+<article id="vt:parent">
+  <h4><code>vt:parent</code></h4>
+  <ul>
+    <li>
+      <p>
+        <code>vt:parent</code> is a special attribute used when you want to
+        re-use a base/parent component.
+      </p>
+      <p>
+        This comes in handy, when you want to re-use a
+        <code>parent</code> html component for different pages
+      </p>
+      <p>Assume you have a <code>Base.html</code> like the one below:</p>
+      <pre>
+        <code>
+            &lt;!DOCTYPE html>
+            &lt;html
+            lang="en"
+            <span class="green">vt_imports="['components/scripts.html','components/vt_header.html' ]"</span>
+            >
+            &lt;head>
+                &lt;meta charset="UTF-8" />
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0" />
+                &lt;link rel="shortcut icon" href="/images/logo_bg.jpg" />
+                &lt;link rel="stylesheet" href="style.css" type="text/css" />
+                &lt;title>Vanilla Templates | <span class="green">{page}</span>&lt;/title>
+            &lt;/head>
+            &lt;body>
+                &lt;div class="container">
+                &lt;vt_header title="Vanilla Templates" version="1.0.0" />
+                <span class="green">&lt;vt_child /></span>
+                &lt;/div>
+            &lt;/body>
+            &lt;scripts />
+            &lt;/html>
+        </code>
+      </pre>
+      This is a sample component that inherits the <code>Base.html</code>:
+      <pre>
+        <code>
+            &lt;vt_frag <span class="green">vt:parent="components/Base.html" page="Home"</span>>
+                &lt;div
+                    style="min-height: 400px"
+                    class="container d-flex align-items-center justify-content-center flex-column gap-4"
+                >
+                    &lt;p>Welcome to &lt;code>vanilla templates&lt;/code>&lt;/p>
+                    &lt;img style="width: 120px" src="images/logo_bg.jpg" />
+                    &lt;ul>
+                    &lt;li>
+                        &lt;a href="/docs.html">Go to docs 📃&lt;/a>
+                    &lt;/li>
+                    &lt;li>
+                        &lt;a href="#">Buy me a coffee ☕&lt;/a>
+                    &lt;/li>
+                    &lt;/ul>
+                &lt;/div>
+            &lt;/vt_frag>
+
+        </code>
+      </pre>
+      <p>Few things to take note of:</p>
+      <ul>
+        <li>
+          The parent components can have placeholders like a regular template,
+          which are passed from the child components.
+          <p>
+            e.g the <code>page</code> prop in the above example defined in the
+            base html should be passed by every child that inherits.
+          </p>
+        </li>
+        <li id="vt_child">
+          In the parent template, there is a <code>vt_child</code> special
+          component, which is replaced by any child that inherits this parent.
+          <p>
+            <code>code>NOTE</code>As highlighted in the Base.html, the
+            <code>vt__child</code> is not imported and is a
+            <b>reserved</b> name.<strong></strong>
+          </p>
+        </li>
+        <li>
+          In the child component that is inheriting the parent, you
+          <b>MUST</b> declare the <code>vt:parent</code> then pass the path of
+          the parent component.
+        </li>
+        <li>
+          The <code>vt_frag</code> is going to be discussed in the next section.
+        </li>
+      </ul>
+    </li>
+  </ul>
+</article>
