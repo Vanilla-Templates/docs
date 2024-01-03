@@ -18,10 +18,12 @@
 <span class=""><h3>Vanilla Templates</h3></span>
 </a>
 <div class="d-flex align-items-center gap-4">
-<div><a href="#">❤ Support vt</a></div>
+<div>
+<a href="https://www.buymeacoffee.com/fredrickkyeki"><span style="color: rgb(214, 14, 14)">❤ Support vt</span></a>
+</div>
 <span style="width: 1px; height: 30%; background-color: rgb(190, 190, 190)"></span>
 <div class="d-flex align-items-center">
-      Latest version: <code> 1.0.0 </code>
+      Latest version:  <code> 1.0.0</code>
 </div>
 </div>
 <a aria-label="View source on Github" class="github-corner" href="https://github.com/vanilla-templates/vt_docs">
@@ -84,11 +86,11 @@
 </ul>
 </li>
 <li>
-<a href="#special-attributes">Special 'vt' atributes and tags:</a>
+<a href="#special-attrs-and-tags">Special 'vt' atributes and tags:</a>
 <ul>
 <li><a href="#vt:parent">vt:parent</a></li>
-<li><a href="#vt_frag">vt_frag</a></li>
 <li><a href="#vt_child">vt_child</a></li>
+<li><a href="#vt_frag">vt_frag</a></li>
 </ul>
 </li>
 <li>
@@ -106,7 +108,6 @@
 </ul>
 </li>
 </ul>
-<strong>Latest Version: <code>1.0.0</code></strong>
 </aside>
 
 <main class="col-lg-8 col-md-8 col-sm-12">
@@ -149,11 +150,21 @@
 <section>
 <h2 id="installation">Installation</h2>
 <ol>
-<li>create a working directory and <code>cd</code> into it</li>
-<p><code>mkdir vanilla cd vanilla</code></p>
-<li>degit from gh in dir</li>
+<li>
+<p>Create a working directory and <code>cd</code> into it.</p>
+<p>
+<code>mkdir vanilla-test <br/>
+          cd vanilla-test</code>
+</p>
+</li>
+<li>
+<p>pip install the package from github into the working directory:</p>
 <code>pip install git+https://github.com/vanilla-templates/vt.git</code>
-<li>create .gitignore in working directory and add into it.</li>
+</li>
+<li>
+      Create <code>.gitignore</code> in working directory and add the
+      <code>vt</code> folder into it.
+    </li>
 <li>
       create public directory (<code>NOTE:</code>
 <strong>We insist you call it public</strong>) for static files.
@@ -164,11 +175,11 @@
       <code>vanilla templates</code>
 </li>
 <li>
-      Build or serve your work on a configured port.<br/>
-<code>python -m vt.serve -- for serving</code><br/>
-<code>python -m vt.building -- for generating static site in the build
-        directory</code>
-</li>
+      Build or serve your work on a pre-configured port (<b>2220</b>).<br/>
+<code>python -m vt.serve</code> - for serving<br/>
+<code>python -m vt.building</code> - for generating static site in the
+      build directory
+    </li>
 </ol>
 </section>
 
@@ -552,8 +563,8 @@
 </p>
 <div class="card">
 <div class="card-header"><strong>Cat fax ! </strong></div>
-<div class="card-body"><strong>Fact: </strong>Two members of the cat family are distinct from all others: the clouded leopard and the cheetah. The clouded leopard does not roar like other big cats, nor does it groom or rest like small cats. The cheetah is unique because it is a running cat; all others are leaping cats. They are leaping cats because they slowly stalk their prey and then leap on it.</div>
-<div class="card-footer"><strong>Length: </strong>354</div>
+<div class="card-body"><strong>Fact: </strong>Female cats tend to be right pawed, while male cats are more often left pawed. Interestingly, while 90% of humans are right handed, the remaining 10% of lefties also tend to be male.</div>
+<div class="card-footer"><strong>Length: </strong>182</div>
 </div>
 
 </article>
@@ -2407,6 +2418,34 @@ accusamus ratione error aut</p>
 <code>**NOTE**</code> The prop accessor only goes to one level, so the json
     structure matters (a multilevel prop accessor is in development).
   </strong>
+<p>i.e</p>
+<p>If you have json data in the following format:</p>
+<pre>
+    <code>
+    {
+      "Ervin Howell":
+        {
+          "id": 2,
+          "name": "Ervin Howell",
+          "username": "Antonette",
+          "email": "Shanna@melissa.tv",
+          "address": {
+                  ...
+              },
+          "phone": "010-692-6593 x09125",
+          "website": "anastasia.net",
+          "company": {
+              ...
+              }
+        }
+    }
+    </code>
+  </pre>
+<p>
+    If you access the record (whether from an api or file), the data is injected
+    as is, meaning, the accessor isnt able to reach the values for
+    <code>"address"</code> and <code>"company"</code>.
+  </p>
 </section>
 
 <hr/>
@@ -2439,8 +2478,188 @@ accusamus ratione error aut</p>
     In this example, the data accessed is a dictionary that will directly be
     injected into the template.
   </p>
+<p>
+<code>**NOTE**</code>This feature currently works for
+    <code>vt:from, vt:from-file and vt:from-api</code> only, which means the
+    data to be injected into the template can only be a dictionary.,
+  </p>
 </section>
 
+<hr/>
+<section id="special-attrs-and-tags">
+<h3>Special <code>vt</code> attributes and tags:</h3>
+<ol>
+<li>
+<article id="vt:parent">
+<h4><code>vt:parent</code></h4>
+<ul>
+<li>
+<p>
+<code>vt:parent</code> is a special attribute used when you want to
+        re-use a base/parent component.
+      </p>
+<p>
+        This comes in handy, when you want to re-use a
+        <code>parent</code> html component for different pages
+      </p>
+<p>Assume you have a <code>Base.html</code> like the one below:</p>
+<pre>
+        <code>
+            &lt;!DOCTYPE html&gt;
+            &lt;html
+            lang="en"
+            <span class="green">vt_imports="['components/scripts.html','components/vt_header.html' ]"</span>
+            &gt;
+            &lt;head&gt;
+                &lt;meta charset="UTF-8" /&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0" /&gt;
+                &lt;link rel="shortcut icon" href="/images/logo_bg.jpg" /&gt;
+                &lt;link rel="stylesheet" href="style.css" type="text/css" /&gt;
+                &lt;title&gt;Vanilla Templates | <span class="green">{page}</span>&lt;/title&gt;
+            &lt;/head&gt;
+            &lt;body&gt;
+                &lt;div class="container"&gt;
+                &lt;vt_header title="Vanilla Templates" version="1.0.0" /&gt;
+                <span class="green">&lt;vt_child /&gt;</span>
+                &lt;/div&gt;
+            &lt;/body&gt;
+            &lt;scripts /&gt;
+            &lt;/html&gt;
+        </code>
+      </pre>
+      This is a sample component that inherits the <code>Base.html</code>:
+      <pre>
+        <code>
+            &lt;vt_frag <span class="green">vt:parent="components/Base.html" page="Home"</span>&gt;
+                &lt;div
+                    style="min-height: 400px"
+                    class="container d-flex align-items-center justify-content-center flex-column gap-4"
+                &gt;
+                    &lt;p&gt;Welcome to &lt;code&gt;vanilla templates&lt;/code&gt;&lt;/p&gt;
+                    &lt;img style="width: 120px" src="images/logo_bg.jpg" /&gt;
+                    &lt;ul&gt;
+                    &lt;li&gt;
+                        &lt;a href="/docs.html"&gt;Go to docs 📃&lt;/a&gt;
+                    &lt;/li&gt;
+                    &lt;li&gt;
+                        &lt;a href="#"&gt;Buy me a coffee ☕&lt;/a&gt;
+                    &lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/div&gt;
+            &lt;/vt_frag&gt;
+
+        </code>
+      </pre>
+<p>Few things to take note of:</p>
+<ul>
+<li>
+          The parent components can have placeholders like a regular template,
+          which are passed from the child components.
+          <p>
+            e.g the <code>page</code> prop in the above example defined in the
+            base html should be passed by every child that inherits.
+          </p>
+</li>
+<li id="vt_child">
+          In the parent template, there is a <code>vt_child</code> special
+          component, which is replaced by any child that inherits this parent.
+          <p>
+<code>code&gt;NOTE</code>As highlighted in the Base.html, the
+            <code>vt__child</code> is not imported and is a
+            <b>reserved</b> name.<strong></strong>
+</p>
+</li>
+<li>
+          In the child component that is inheriting the parent, you
+          <b>MUST</b> declare the <code>vt:parent</code> then pass the path of
+          the parent component.
+        </li>
+<li>
+          The <code>vt_frag</code> is going to be discussed in the next section.
+        </li>
+</ul>
+</li>
+</ul>
+</article>
+
+</li>
+<li>
+<article id="vt_frag">
+<h4><code>vt_frag</code></h4>
+<p>
+    By now, you have seen the <code>&lt;vt_frag&gt;&lt;/vt_frag&gt;</code> in the
+    various examples shown above.
+  </p>
+<p>
+    The <code>vt_frag</code> (<b>vt fragment in full</b>)is a special tag in
+    <code>Vanilla Templates</code> used when you want to wrap a group of tags
+    but you don't the tag you wrap with to end up in the final build.
+  </p>
+<p>
+    In short, when <code>vt</code> is building your site, and it comes across
+    this tag, it <b>'unwraps'</b> and renders it's children.
+  </p>
+</article>
+
+</li>
+</ol>
+</section>
+
+<hr/>
+<section id="SSG">
+<h3>Static Site Generation</h3>
+<p>
+<code>Vanilla Templates</code> has a build command:
+    <code>python3 -m vt.build</code> which compiles all the different components
+    and after filling them the appropriate data.
+  </p>
+<p>
+    The final html file and the contents in the <code>public</code> folder are
+    dumped in the <code>__vt_build__</code> in the root of your project.
+  </p>
+<p>From here you can deploy it as is, as it is a basic html file.</p>
+<p>
+    It is worth noting that with <code>Vanilla Templates</code>, you can build a
+    significantly bigger website with multiple pages re-using the same
+    templates, and use your favourite library to add some interactivity, a.k.a
+    make it <code>reactive</code> (a good recommendation would be
+    <a href="https://htmx.org/docs/">htmx</a>).
+  </p>
+</section>
+
+<hr/>
+<section id="SSR">
+<h3>Server Side Rendering</h3>
+<p>
+    Vanilla Templates uses a <code>Flask</code> server activated by
+    <code>python3 -m vt.serve</code> for developement and debugging.
+  </p>
+<p>
+    For the most part, Vanilla Templates SSR compiles the components and renders
+    the website without added backend features like database data injection.
+  </p>
+<p>
+    This leads to the fact that most Server Side Features are still largely in
+    development 😢, but we hope the features above suffice enough to bootstrap
+    your 'Javascript-frameworkless'😂 web developemnt.
+  </p>
+</section>
+
+<hr/>
+<footer class="row">
+<div class="col-lg-4 col-sm-12">
+<a href="https://www.buymeacoffee.com/fredrickkyeki"><span style="color: rgb(214, 14, 14)">❤ Support vt</span></a>
+</div>
+<div class="col-lg-4 col-sm-6">
+          © Vanilla Templates
+          <script>
+            document.write(new Date().getFullYear());
+          </script>
+</div>
+<div class="col-lg-4 col-sm-6">
+<p>Author: <a href="https://github.com/FREDRICKKYEKI  ">Fred</a></p>
+</div>
+</footer>
 </main>
 </div>
 
